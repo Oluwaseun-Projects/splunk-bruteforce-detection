@@ -100,7 +100,8 @@ index=* ("Failed password" OR "4625")
 
 ### 🔹 Attack Simulation (Kali Linux)
 
-![Attack](screenshots/Kali-attack.png)
+<img width="1609" height="884" alt="Kali attack on Linux and Windows" src="https://github.com/user-attachments/assets/26aaf6b9-4157-4ac7-8d62-0ccf829f2ae7" />
+
 
 ### 🔹 Linux Failed Password Logs
 
