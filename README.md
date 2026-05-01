@@ -121,7 +121,7 @@ index=* ("Failed password" OR "4625")
 
 ### 🔹 Dashboard View
 
-![Dashboard](screenshots/dashboard.png)
+![Main_Dashboard](screenshots/Main_Dashboard.png)
 
 ---
 
