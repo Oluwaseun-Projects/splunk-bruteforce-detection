@@ -136,7 +136,7 @@ Displays the trend of failed authentication attempts over time.
 
 ### 🔹 Dashboard View
 
-![Dashboard](screenshots/dashboard_overview.png)
+![Dashboard](screenshots/Main_Dashboard.png)
 
 ---
 
