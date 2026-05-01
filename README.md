@@ -111,7 +111,7 @@ Displays the trend of failed authentication attempts over time.
 <p align="left">
   <img src="screenshots/activity_over_time.png" width="48%">  <img src="screenshots/activities_over_time_chart.png" width="48%">
 </p>
-
+---
 
 ## 📸 Screenshots
 
