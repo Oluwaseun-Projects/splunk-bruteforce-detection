@@ -86,7 +86,7 @@ An alert was configured to trigger when brute force behavior is detected.
 * Trigger Condition: Number of Results > 0
 * Purpose: Detect and notify on active brute force attempts
 
----
+
 
 ## 📊 Dashboard Overview
 
@@ -97,21 +97,21 @@ Identifies source IP addresses generating the highest number of failed login att
 <p align="left">
   <img src="screenshots/top_attacking_ips.png" width="500">  <img src="screenshots/top_attacking_ips_bar.png" width="500">
 </p>
----
+
 
 ### 🔹 Targeted Users
 Shows user accounts most frequently targeted during brute force attempts.
 <p align="left">
   <img src="screenshots/targeted_users.png" width="500">  <img src="screenshots/targeted_users_bar.png" width="500">
 </p>
----
+
 
 ### 🔹 Activity Over Time
 Displays the trend of failed authentication attempts over time.
 <p align="left">
   <img src="screenshots/activity_over_time.png" width="500">  <img src="screenshots/activities_over_time_chart.png" width="500">
 </p>
----
+
 
 ## 📸 Screenshots
 
