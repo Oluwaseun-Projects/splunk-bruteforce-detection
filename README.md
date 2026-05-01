@@ -134,12 +134,15 @@ Displays the trend of failed authentication attempts over time.
 
 ### 🔹 Detection Results
 
-![Detection](screenshots/detection_results.png)
+<p align="left">
+  <img src="screenshots/combined_detection_result.png" width="700">  
+</p>
 
 ### 🔹 Alert Configuration
 
-![Alert](screenshots/alert_configuration.png)
-
+<p align="left">
+  <img src="screenshots/attack_simulation_kali.png" width="700">  
+</p>
 ### 🔹 Dashboard View
 
 <p align="left">
