@@ -104,7 +104,7 @@ Identifies source IP addresses generating the highest number of failed login att
 Shows user accounts most frequently targeted during brute force attempts.
 
 <p align="left">
-  <img src="screenshots/targeted_users.png" width="500">  <img src="screenshots/targeted_users_bar.png" width="500">
+  <img src="screenshots/targeted_users.png" width="500">  <img src="screenshots/targeted_users_line.png" width="500">
 </p>
 
 ---
