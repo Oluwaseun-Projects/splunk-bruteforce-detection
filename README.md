@@ -95,8 +95,9 @@ A Splunk dashboard was created to visualize brute force activity across systems.
 ### 🔹 Top Attacking IPs
 Identifies source IP addresses generating the highest number of failed login attempts.
 
-![Top IPs](screenshots/top-ips.png)
-
+<p align="left">
+  <img src="screenshots/Main_Dashboard.png" width="700">
+</p>
 ---
 
 ### 🔹 Targeted Users
