@@ -109,7 +109,7 @@ Shows user accounts most frequently targeted during brute force attempts.
 ### 🔹 Activity Over Time
 Displays the trend of failed authentication attempts over time.
 <p align="left">
-  <img src="screenshots/activity_over_time.png" width="500">  <img src="screenshots/activity_over_time_chart.png" width="500">
+  <img src="screenshots/activity_over_time.png" width="500">  <img src="screenshots/activities_over_time_chart.png" width="500">
 </p>
 ---
 
