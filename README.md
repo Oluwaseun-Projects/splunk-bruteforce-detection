@@ -1,63 +1,62 @@
-# 🔐 Brute Force Detection in Splunk (Windows + Linux)
+# 🔐 Brute Force Attack Detection using Splunk (Windows + Linux)
 
-## 📌 Project Overview
-
-This project demonstrates how to detect brute force login attempts using Splunk across both Linux and Windows systems.
-
-It covers:
-
-* Log ingestion (Linux & Windows)
-* Attack simulation using Hydra
-* Detection using SPL
-* Alert creation
-* Dashboard visualization
+🚨 Simulated brute force attacks using Hydra and detected them in Splunk across Windows and Linux environments.
 
 ---
-## 🧪 Attack Simulation (Kali Linux)
 
-Brute force attacks were simulated using **Hydra** from a Kali Linux machine.
+## 📌 Overview
 
-### SSH Attack (Linux Target)
+This project demonstrates how to detect brute force authentication attempts across heterogeneous systems using Splunk.
+
+It simulates real-world attack scenarios and implements detection, alerting, and visualization—mirroring workflows used in a Security Operations Center (SOC).
+
+---
+
+## 🎯 Objectives
+
+* Simulate brute force attacks on Linux (SSH) and Windows (RDP)
+* Ingest and analyze logs in Splunk
+* Detect suspicious authentication patterns using SPL
+* Create alerts for real-time monitoring
+* Build dashboards for threat visibility
+
+---
+
+## 🧪 Attack Simulation
+
+Brute force attacks were generated using Hydra from a Kali Linux machine.
+
+### 🔹 SSH Brute Force (Linux Target)
 
 ```bash
-hydra -l kayode -P /usr/share/wordlists/rockyou.txt -t 5 ssh://192.168.200.30
+hydra -l kayode -P /usr/share/wordlists/rockyou.txt ssh://192.168.200.30 -t 5
 ```
 
-### RDP Attack (Windows Target)
+### 🔹 RDP Brute Force (Windows Target)
 
 ```bash
-hydra -l seun -P /usr/share/wordlists/rockyou.txt -t 5 rdp://192.168.200.20
+hydra -l seun -P /usr/share/wordlists/rockyou.txt rdp://192.168.200.20 -t 5
 ```
 
 ---
 
 ## 📥 Data Sources
 
-| Source  | Description                                   |
-| ------- | --------------------------------------------- |
-| Linux   | `/var/log/auth.log`                           |
-| Windows | Security Logs (EventCode 4625 - Failed Login) |
+| Source  | Description                                         |
+| ------- | --------------------------------------------------- |
+| Linux   | `/var/log/auth.log` (SSH failed logins)             |
+| Windows | Security Event Logs (EventCode 4625 - Failed Login) |
 
 ---
 
-## 🔍 Log Verification
+## 🔍 Detection Strategy
 
-Ensure both logs are being ingested:
+Brute force activity is identified based on:
 
-```spl
-index=* ("Failed password" OR "4625")
-| stats count by sourcetype
-```
-
----
-
-## 🧠 Detection Logic
-
-Brute force is identified as:
-
-* Multiple failed login attempts
-* From the same IP or targeting the same user
-* Threshold: ≥ 5 attempts
+* Repeated failed authentication attempts
+* Multiple attempts from a single source IP
+* Targeting one or more user accounts
+* Threshold-based detection (≥ 5 attempts)
 
 ---
 
@@ -76,92 +75,114 @@ index=* ("Failed password" OR "4625")
 
 ---
 
-## 🚨 Alert Configuration
+## 🚨 Alert Implementation
 
-* **Name:** Brute Force Login Detection
-* **Type:** Scheduled
-* **Frequency:** Every 5 minutes
-* **Trigger Condition:** Number of Results > 5
-* **Action:** Email notification
+An alert was configured to trigger when brute force behavior is detected.
+
+**Configuration:**
+
+* Type: Scheduled
+* Frequency: Every 5 minutes
+* Trigger Condition: Number of Results > 0
+* Purpose: Detect and notify on active brute force attempts
 
 ---
 
-## 📊 Dashboard (Brute Force Monitoring)
+## 📊 Dashboard Overview
 
-### Panels:
+A Splunk dashboard was created to visualize brute force activity across systems.
 
-1. **Top Attacking IPs**
-2. **Targeted Users**
-3. **Activity Over Time**
+### 🔹 Top Attacking IPs
+Identifies source IP addresses generating the highest number of failed login attempts.
 
+![Top IPs](screenshots/top-ips.png)
+
+---
+
+### 🔹 Targeted Users
+Shows user accounts most frequently targeted during brute force attempts.
+
+![Users](screenshots/users.png)
+
+---
+
+### 🔹 Activity Over Time
+Displays the trend of failed authentication attempts over time.
+
+![Timeline](screenshots/timeline.png)
 ---
 
 ## 📸 Screenshots
 
-### 🔹 Attack Simulation (Kali Linux)
+### 🔹 Attack Simulation
 
-![Board](screenshots/Alert page summary.png)
+![Attack Simulation](screenshots/kali_attack.png)
 
+### 🔹 Linux Failed Login Events
 
-### 🔹 Linux Failed Password Logs
+![Linux Logs](screenshots/linux_failed_logs.png)
 
-![Linux Logs](screenshots/linux-failed.png)
+### 🔹 Windows Failed Login Events
 
-### 🔹 Windows Failed Logins
+![Windows Logs](screenshots/windows_failed_logs.png)
 
-![Windows Logs](screenshots/windows-failed.png)
+### 🔹 Detection Results
 
-### 🔹 Combined Detection Results
-
-![Detection](screenshots/detection-results.png)
+![Detection](screenshots/detection_results.png)
 
 ### 🔹 Alert Configuration
 
-![Alert](screenshots/alert-config.png)
+![Alert](screenshots/alert_configuration.png)
 
 ### 🔹 Dashboard View
 
-![Main_Dashboard](screenshots/Main_Dashboard.png)
+![Dashboard](screenshots/dashboard_overview.png)
 
 ---
 
 ## 🔎 Key Findings
 
-* IP `192.168.201.100` generated the highest number of failed login attempts
-* Multiple users were targeted including:
-
-  * `kayode`
-  * `seun`
-* Attack patterns clearly indicate brute force behavior
+* A single source IP generated a high volume of failed login attempts
+* Multiple user accounts were targeted (e.g., `kayode`, `seun`)
+* Attack patterns clearly matched brute force behavior
+* Detection logic successfully identified and flagged the activity
 
 ---
 
 ## ⚠️ Limitations
 
-* Linux logs required regex extraction (`rex`)
-* No field normalization (CIM not implemented)
-* Detection based on threshold (no behavioral analytics)
+* Linux logs required regex-based field extraction (`rex`)
+* No centralized field normalization (CIM not implemented)
+* Detection is threshold-based (no behavioral anomaly detection)
 
 ---
 
 ## 🚀 Future Improvements
 
-* Implement **CIM (Common Information Model)**
-* Use **field aliases and props.conf**
-* Add **correlation rules**
-* Improve detection using **time-based thresholds**
+* Implement **Splunk CIM (Common Information Model)**
+* Use **field extraction via props.conf / transforms.conf**
+* Add **correlation rules across multiple data sources**
+* Introduce **time-based and behavioral detection logic**
+
+---
+
+## 🧠 Skills Demonstrated
+
+* SIEM (Splunk) log analysis
+* Threat detection using SPL
+* Cross-platform log correlation (Windows & Linux)
+* Alerting and monitoring
+* Security dashboard design
 
 ---
 
 ## 🎯 Conclusion
 
-This project demonstrates a practical approach to detecting brute force attacks using Splunk across heterogeneous systems. It highlights core SOC skills including log analysis, SPL usage, alerting, and dashboard creation.
+This project demonstrates practical SOC-level detection capabilities by combining attack simulation, log analysis, and monitoring within Splunk. It highlights the ability to detect and respond to brute force attacks in a real-world environment.
 
 ---
 
 ## 👤 Author
 
 **Seun**
-Cybersecurity / SOC Analyst
-
----
+Cybersecurity Analyst | SOC Enthusiast
