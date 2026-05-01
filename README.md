@@ -117,7 +117,9 @@ Displays the trend of failed authentication attempts over time.
 
 ### 🔹 Attack Simulation
 
-![Attack Simulation](screenshots/kali_attack.png)
+<p align="left">
+  <img src="screenshots/attack_simulation_kali.png" width="700">  
+</p>
 
 ### 🔹 Linux Failed Login Events
 
