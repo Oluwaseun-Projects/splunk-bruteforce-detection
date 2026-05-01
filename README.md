@@ -126,13 +126,16 @@ Displays the trend of failed authentication attempts over time.
 <p align="left">
   <img src="screenshots/linux_failed_password.png" width="700">  
 </p>
-### 🔹 Windows Failed Login Events
 
+### 🔹 Windows Failed Login Events
 <p align="left">
   <img src="screenshots/windows_failed_and_success.png
     " width="700">  
 </p>
 
+<p align="left">
+  <img src="screenshots/windows_attack_count.png" width="700">  
+</p>
 ### 🔹 Detection Results
 
 ![Detection](screenshots/detection_results.png)
