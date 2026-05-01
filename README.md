@@ -139,10 +139,10 @@ Displays the trend of failed authentication attempts over time.
 </p>
 
 ### 🔹 Alert Configuration
-
 <p align="left">
-  <img src="screenshots/attack_simulation_kali.png" width="700">  
+  <img src="screenshots/alert_configuration.png" width="700">  
 </p>
+
 ### 🔹 Dashboard View
 
 <p align="left">
