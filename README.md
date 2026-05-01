@@ -100,7 +100,7 @@ index=* ("Failed password" OR "4625")
 
 ### 🔹 Attack Simulation (Kali Linux)
 
-!(screenshots/Alert page summary.png)
+![Board](screenshots/Alert page summary.png)
 
 
 ### 🔹 Linux Failed Password Logs
